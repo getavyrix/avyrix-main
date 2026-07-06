@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Avyrix is an early-stage cybersecurity startup building a developer-first platform to explain vulnerabilities, show attack scenarios, and guide secure fixes." />
+  <meta property="og:title" content="Avyrix — Building a developer-first security platform" />
+  <meta property="og:description" content="Avyrix is currently in research, validation, and early development, focused on clearer security guidance for developers." />
+  <meta property="og:type" content="website" />
+  <title>Avyrix — Developer-first security learning for early-stage teams</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300e5a0'/><path d='M10 16l4 4 8-8' stroke='%23000' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGV57BHCSG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-MGV57BHCSG');
+  </script>
+</head>
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Avyrix home">
+        <img src="logo.png" alt="" class="nav__logo-mark" />
+        <span class="nav__logo-text">Avyrix</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="demo.html">Try Demo</a></li>
+        <li><a href="waitlist.html">Join Waitlist</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section hero-section" aria-labelledby="hero-heading">
+      <div class="glow-accent glow-accent--green" aria-hidden="true"></div>
+      <div class="glow-accent glow-accent--red" aria-hidden="true"></div>
+      <div class="hero-grid container">
+        <div class="hero-copy" data-reveal>
+          <span class="badge badge--green badge--dot">Research • Validation • Early Development</span>
+          <h1 class="display-xl" id="hero-heading">Helping developers understand security issues before they reach production.</h1>
+          <p class="hero-lead">
+            Avyrix is being built as a developer-first platform for security education and remediation. We are shaping a more useful path from vulnerable code to clear guidance, practical fixes, and better secure-coding habits.
+          </p>
+          <div class="hero-meta">
+            <span id="typewriter" class="hero-typewriter"></span>
+            <span class="terminal__caret" aria-hidden="true"></span>
+          </div>
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn--primary btn--large">Try the Demo</a>
+            <a href="waitlist.html" class="btn btn--ghost btn--large">Join Waitlist</a>
+          </div>
+          <p class="hero-note">This is an early concept experience. The production platform is still under development.</p>
+        </div>
+
+        <div class="hero-panel card" data-reveal>
+          <div class="terminal">
+            <div class="terminal__bar">
+              <div class="terminal__dots" aria-hidden="true">
+                <div class="terminal__dot" style="background:#ff5f57;"></div>
+                <div class="terminal__dot" style="background:#ffbd2e;"></div>
+                <div class="terminal__dot" style="background:#28ca41;"></div>
+              </div>
+              <span class="terminal__title">avyrix — roadmap</span>
+            </div>
+            <div class="terminal__body">
+              <div class="terminal__line--amber">$ avx research --feedback</div>
+              <div class="terminal__line--green">✓ Developer pain points collected</div>
+              <div class="terminal__line--green">✓ Security explanations mapped</div>
+              <div class="terminal__line--amber">• Prototype demo live for exploration</div>
+              <div class="terminal__line--red">• Full engine still in active development</div>
+              <div class="terminal__line--green">→ Next step: clearer remediation workflows</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sm" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="eyebrow">Why Avyrix exists</span>
+          <h2 class="display-lg" id="why-heading">Security tools often feel like noise when developers need clarity.</h2>
+          <p>
+            Many teams are forced to work through alerts, unfamiliar terminology, and incomplete guidance while trying to ship quickly. The result is friction, confusion, and avoidable mistakes.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card story-card" data-reveal>
+            <h3>Too many alerts</h3>
+            <p>Developers can be overwhelmed by warnings that are hard to prioritize and even harder to fix with confidence.</p>
+          </article>
+          <article class="card story-card" data-reveal>
+            <h3>Security jargon</h3>
+            <p>Many findings are described in language that assumes prior security expertise, which slows down learning and remediation.</p>
+          </article>
+          <article class="card story-card" data-reveal>
+            <h3>Disconnected workflows</h3>
+            <p>Security work often feels separate from development, leaving teams without a clear path from issue to practical action.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="building-heading">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="eyebrow">What Avyrix is building</span>
+          <h2 class="display-lg" id="building-heading">A platform that aims to make security findings easier to understand and act on.</h2>
+          <p>
+            We are designing an experience that can analyze code, surface vulnerabilities, explain the issue in plain English, show likely attack scenarios, recommend fixes, and help developers grow their secure-coding knowledge over time.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card story-card" data-reveal>
+            <h3>Code analysis</h3>
+            <p>We are exploring ways to scan code and identify patterns that may introduce risk in real projects.</p>
+          </article>
+          <article class="card story-card" data-reveal>
+            <h3>Plain-English explanations</h3>
+            <p>Findings should be grounded in context and written in a way developers can understand without extra translation.</p>
+          </article>
+          <article class="card story-card" data-reveal>
+            <h3>Secure-coding guidance</h3>
+            <p>We want each finding to help a developer learn the underlying principle and apply the fix more confidently next time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section workflow-section" aria-labelledby="workflow-heading">
+      <div class="container">
+        <div class="section-heading section-heading--center" data-reveal>
+          <span class="eyebrow">How the experience is meant to work</span>
+          <h2 class="display-lg" id="workflow-heading">From code to guidance in a more useful flow.</h2>
+        </div>
+        <div class="workflow-stack" data-reveal>
+          <div class="workflow-card">
+            <span class="workflow-step">01</span>
+            <h3>Code</h3>
+            <p>Developers bring in code they want to understand.</p>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">↓</div>
+          <div class="workflow-card">
+            <span class="workflow-step">02</span>
+            <h3>Security analysis</h3>
+            <p>Potential issues are surfaced with a clear explanation of the risk.</p>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">↓</div>
+          <div class="workflow-card">
+            <span class="workflow-step">03</span>
+            <h3>Explanation</h3>
+            <p>Each finding is described in practical language.</p>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">↓</div>
+          <div class="workflow-card">
+            <span class="workflow-step">04</span>
+            <h3>Fix guidance</h3>
+            <p>We aim to show the next step in a way that is easy to apply.</p>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">↓</div>
+          <div class="workflow-card">
+            <span class="workflow-step">05</span>
+            <h3>Secure coding knowledge</h3>
+            <p>The goal is not just detection, but better habits over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-heading">
+      <div class="container">
+        <div class="split-panel card" data-reveal>
+          <div>
+            <span class="eyebrow">Current development status</span>
+            <h2 class="display-lg" id="status-heading">Transparent about where Avyrix stands today.</h2>
+            <p class="muted-copy">
+              Avyrix is in research, validation, and early development. The current experience is an educational prototype built to explore the problem space and test the direction of the product.
+            </p>
+          </div>
+          <div class="status-list">
+            <div class="status-item">
+              <strong>Current stage</strong>
+              <p>Validation, research, and early development.</p>
+            </div>
+            <div class="status-item">
+              <strong>Current demo</strong>
+              <p>An educational concept experience, not a production-ready scanner.</p>
+            </div>
+            <div class="status-item">
+              <strong>Planned next steps</strong>
+              <p>Real scanning engine, broader vulnerability coverage, CI/CD workflows, and a more complete product experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="differentiation-heading">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="eyebrow">What makes this approach different</span>
+          <h2 class="display-lg" id="differentiation-heading">Education-first, developer-friendly, and honest about the work ahead.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card story-card" data-reveal>
+            <h3>Education-first</h3>
+            <p>We want security guidance to help developers learn as they fix, rather than simply produce a warning list.</p>
+          </article>
+          <article class="card story-card" data-reveal>
+            <h3>Developer-friendly</h3>
+            <p>Plain language and practical context are central to how we think about the experience.</p>
+          </article>
+          <article class="card story-card" data-reveal>
+            <h3>Transparent</h3>
+            <p>We are not presenting Avyrix as a finished platform. We are building it carefully and sharing the progress openly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-panel card" data-reveal>
+          <div>
+            <span class="eyebrow">Stay involved</span>
+            <h2 class="display-lg" id="cta-heading">If this direction feels useful, follow the work and help shape it.</h2>
+            <p class="muted-copy">The best way to support Avyrix right now is to try the demo, share feedback, and join the waitlist for future updates.</p>
+          </div>
+          <div class="hero-actions">
+            <a href="demo.html" class="btn btn--primary btn--large">Try the Demo</a>
+            <a href="waitlist.html" class="btn btn--ghost btn--large">Join Waitlist</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="nav__logo" style="margin-bottom:6px;">
+            <img src="logo.png" alt="" class="nav__logo-mark" />
+            <span class="nav__logo-text">Avyrix</span>
+          </div>
+          <p class="footer__copy">© 2025 Avyrix. Building in public with transparency.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="demo.html">Try Demo</a>
+          <a href="waitlist.html">Join Waitlist</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

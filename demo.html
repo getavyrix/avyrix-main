@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Try the Avyrix demo to explore how we are designing a more transparent security learning experience for developers." />
+  <title>Try the Demo — Avyrix</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="devsecurecoach-api-url" content="http://localhost:8000/scan" />
+  <meta name="devsecurecoach-api-key" content="" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300e5a0'/><path d='M10 16l4 4 8-8' stroke='%23000' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGV57BHCSG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-MGV57BHCSG');
+  </script>
+</head>
+
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Avyrix home">
+        <img src="logo.png" alt="" class="nav__logo-mark" />
+        <span class="nav__logo-text">Avyrix</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="demo.html" class="active">Try Demo</a></li>
+        <li><a href="waitlist.html">Join Waitlist</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header" aria-labelledby="demo-heading">
+      <div class="container">
+        <span class="badge badge--green badge--dot" style="margin-bottom:16px;">Educational prototype</span>
+        <h1 class="display-md fade-up" id="demo-heading">A concept demo for a clearer security workflow.</h1>
+        <p class="fade-up fade-up--d1">
+          This experience is designed to show our direction: explain a finding, show why it matters, and make the fix easier to understand. It is not the final scanner and it is not production-ready.
+        </p>
+      </div>
+    </header>
+
+    <section class="section--sm" style="padding-top:0;">
+      <div class="container">
+        <div class="grid-2" style="gap:40px;align-items:start;">
+          <div data-reveal>
+            <div class="card" style="padding:0;overflow:hidden;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--bg-2);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="display:flex;gap:6px;" aria-hidden="true">
+                    <div class="code-block__dot"></div>
+                    <div class="code-block__dot"></div>
+                    <div class="code-block__dot"></div>
+                  </div>
+                  <span style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);">code-input.txt</span>
+                </div>
+                <span id="char-count" style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);">0 chars</span>
+              </div>
+              <div style="padding:20px 20px 0;">
+                <label for="code-input" class="sr-only">Paste your code here</label>
+                <textarea id="code-input" class="form-textarea"
+                  placeholder="// Paste a snippet to explore the concept..."
+                  spellcheck="false" autocorrect="off" autocapitalize="off"
+                  style="min-height:320px;border-color:var(--border-strong);" aria-describedby="input-hint"></textarea>
+                <p id="input-hint" style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-top:8px;">
+                  This demo uses simplified detection patterns to illustrate the vision. It is meant to be educational, not exhaustive.
+                </p>
+              </div>
+              <div style="padding:16px 20px;">
+                <p style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:10px;letter-spacing:0.04em;">TRY EXAMPLE LESSONS</p>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;" role="group" aria-label="Load example code">
+                  <button data-example="sqli" class="btn btn--ghost" style="padding:6px 12px;font-size:12px;font-family:var(--font-mono);" aria-label="Load SQL Injection example">💉 SQL Injection</button>
+                  <button data-example="xss" class="btn btn--ghost" style="padding:6px 12px;font-size:12px;font-family:var(--font-mono);" aria-label="Load XSS example">⚡ XSS</button>
+                  <button data-example="secret" class="btn btn--ghost" style="padding:6px 12px;font-size:12px;font-family:var(--font-mono);" aria-label="Load Secret Leak example">🔑 Secret Leak</button>
+                </div>
+              </div>
+              <div style="display:flex;gap:10px;padding:16px 20px;border-top:1px solid var(--border);background:var(--bg-2);">
+                <button id="scan-btn" class="btn btn--primary" style="flex:1;justify-content:center;padding:12px;" aria-label="Analyze code and learn about security patterns">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M7 5v2M7 7h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg> Analyze & Learn</button>
+                <button id="clear-btn" class="btn btn--ghost" style="padding:12px 16px;" aria-label="Clear code input">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div id="scan-results" role="region" aria-label="Scan results" aria-live="polite"></div>
+            <div style="margin-top:16px;padding:14px;border:1px solid var(--border);border-radius:8px;background:var(--bg-0);font-size:13px;color:var(--text-muted);">
+              <p style="margin-bottom:8px;"><strong>Demo mode:</strong> This is a simplified preview of the experience we are building. It is meant to explore the concept and gather feedback, not replace a fully built scanner.</p>
+              <p style="margin:0;">If this direction feels useful, <a href="waitlist.html" style="color:var(--accent-green);font-weight:500;">join the waitlist</a> to follow the build.</p>
+            </div>
+            <div style="margin-top:16px;display:flex;gap:12px;">
+              <button onclick="sendFeedback('yes')" class="btn btn--ghost" style="flex:1;justify-content:center;">👍 Helpful</button>
+              <button onclick="sendFeedback('no')" class="btn btn--ghost" style="flex:1;justify-content:center;">👎 Needs work</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--sm" style="border-top:1px solid var(--border);">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-family:var(--font-display);font-size:26px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px;">Want to follow the build?</h2>
+        <p style="color:var(--text-secondary);font-size:15px;margin-bottom:24px;">Join the waitlist for updates as we move from prototype toward a more complete platform.</p>
+        <a href="waitlist.html" class="btn btn--primary btn--large">Join the Waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="nav__logo" style="margin-bottom:6px;">
+            <img src="logo.png" alt="" class="nav__logo-mark" />
+            <span class="nav__logo-text">Avyrix</span>
+          </div>
+          <p class="footer__copy">© 2025 Avyrix. Building in public with transparency.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="demo.html">Try Demo</a>
+          <a href="waitlist.html">Join Waitlist</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services/api.js"></script>
+  <script src="js/demo.js"></script>
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0
+    }
+  </style>
+</body>
+
+</html>
