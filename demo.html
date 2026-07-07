@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Try the Avyrix demo to explore how we are designing a more transparent security learning experience for developers." />
-  <title>Try the Demo — Avyrix</title>
+  <meta name="description" content="Try the Avyrix demo to explore the working MVP experience powered by FastAPI and Semgrep." />
+  <meta property="og:title" content="Avyrix Demo — Working MVP" />
+  <meta property="og:description" content="This demo shows the current Avyrix MVP experience: code scanning, vulnerability detection, and security findings rendered in a developer-friendly workflow." />
+  <title>Avyrix Demo — Working MVP</title>
   <link rel="stylesheet" href="css/styles.css" />
   <meta name="devsecurecoach-api-url" content="http://localhost:8000/scan" />
   <meta name="devsecurecoach-api-key" content="" />
@@ -39,11 +40,9 @@
   <main>
     <header class="page-header" aria-labelledby="demo-heading">
       <div class="container">
-        <span class="badge badge--green badge--dot" style="margin-bottom:16px;">Educational prototype</span>
-        <h1 class="display-md fade-up" id="demo-heading">A concept demo for a clearer security workflow.</h1>
-        <p class="fade-up fade-up--d1">
-          This experience is designed to show our direction: explain a finding, show why it matters, and make the fix easier to understand. It is not the final scanner and it is not production-ready.
-        </p>
+        <span class="badge badge--green badge--dot" style="margin-bottom:16px;">Current MVP demo</span>
+        <h1 class="display-md fade-up" id="demo-heading">This demo reflects the current Avyrix MVP workflow.</h1>
+        <p class="fade-up fade-up--d1">The current experience demonstrates working code scanning with FastAPI and Semgrep, vulnerability detection, and developer-facing findings. It is an early-stage product preview, not a finished scanner.</p>
       </div>
     </header>
 
@@ -65,13 +64,8 @@
               </div>
               <div style="padding:20px 20px 0;">
                 <label for="code-input" class="sr-only">Paste your code here</label>
-                <textarea id="code-input" class="form-textarea"
-                  placeholder="// Paste a snippet to explore the concept..."
-                  spellcheck="false" autocorrect="off" autocapitalize="off"
-                  style="min-height:320px;border-color:var(--border-strong);" aria-describedby="input-hint"></textarea>
-                <p id="input-hint" style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-top:8px;">
-                  This demo uses simplified detection patterns to illustrate the vision. It is meant to be educational, not exhaustive.
-                </p>
+                <textarea id="code-input" class="form-textarea" placeholder="// Paste a snippet to explore the current MVP workflow..." spellcheck="false" autocorrect="off" autocapitalize="off" style="min-height:320px;border-color:var(--border-strong);" aria-describedby="input-hint"></textarea>
+                <p id="input-hint" style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-top:8px;">The demo uses simplified detection patterns to illustrate the workflow. It is educational and not exhaustive.</p>
               </div>
               <div style="padding:16px 20px;">
                 <p style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:10px;letter-spacing:0.04em;">TRY EXAMPLE LESSONS</p>
@@ -94,10 +88,24 @@
           </div>
 
           <div>
-            <div id="scan-results" role="region" aria-label="Scan results" aria-live="polite"></div>
-            <div style="margin-top:16px;padding:14px;border:1px solid var(--border);border-radius:8px;background:var(--bg-0);font-size:13px;color:var(--text-muted);">
-              <p style="margin-bottom:8px;"><strong>Demo mode:</strong> This is a simplified preview of the experience we are building. It is meant to explore the concept and gather feedback, not replace a fully built scanner.</p>
-              <p style="margin:0;">If this direction feels useful, <a href="waitlist.html" style="color:var(--accent-green);font-weight:500;">join the waitlist</a> to follow the build.</p>
+            <div class="card" style="padding:24px; margin-bottom:20px;">
+              <span class="eyebrow">How this demo works</span>
+              <h3 style="margin-bottom:14px;">What this demo shows</h3>
+              <ul class="feature-list">
+                <li>Code snippet scanning with a working FastAPI endpoint.</li>
+                <li>Semgrep-powered vulnerability detection.</li>
+                <li>Structured results rendered for developer review.</li>
+              </ul>
+              <h3 style="margin:24px 0 10px;">What is not yet implemented</h3>
+              <ul class="feature-list">
+                <li>Full repository scanning and PR workflows.</li>
+                <li>Detailed attack narratives for every finding.</li>
+                <li>Automatic remediation recommendations for every rule.</li>
+              </ul>
+            </div>
+            <div style="margin-top:16px;padding:18px;border:1px solid var(--border);border-radius:12px;background:var(--bg-0);font-size:14px;color:var(--text-muted);">
+              <p style="margin:0 0 10px;">This demo represents the current MVP experience. It is a working product preview, not a finished security platform.</p>
+              <p style="margin:0;">Help us build the next phase by <a href="waitlist.html" style="color:var(--accent-green);font-weight:500;">joining the waitlist</a>.</p>
             </div>
             <div style="margin-top:16px;display:flex;gap:12px;">
               <button onclick="sendFeedback('yes')" class="btn btn--ghost" style="flex:1;justify-content:center;">👍 Helpful</button>
