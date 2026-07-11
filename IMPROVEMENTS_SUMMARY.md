@@ -73,7 +73,7 @@ All improvements focused on increasing user engagement, conversion rates, and bu
 **Added new full section:**
 - "This is a demo. We're being honest about it."
 - Clear distinction: What this IS vs. What this is NOT
-- Timeline: Q2 2025 launch
+- Timeline: launch
 - Benefit callout: "Early users get locked-in pricing forever"
 
 **Box Content:**
@@ -92,7 +92,7 @@ All improvements focused on increasing user engagement, conversion rates, and bu
 
 **Changes:**
 - Primary: "Try the Demo Free" — removes barrier to entry
-- Secondary: "Join Waitlist (Q2 2025)" — clear timeline
+- Secondary: "Join Waitlist (© 2026)" — clear timeline
 - Removed vague "Get Early Access" wording
 - Added friction-reducing copy: "No credit card · No account needed"
 - CTA appears 4 times on homepage (hero, midway, demo section, footer)
@@ -140,7 +140,7 @@ All improvements focused on increasing user engagement, conversion rates, and bu
 - "2,400+ developers on the waitlist" (social proof + FOMO)
 - "Looking for first 50 developers" (scarcity)
 - "Early users will shape features" (ownership feeling)
-- "Launching Q2 2025" (timeline clarity)
+- "Launching 2026" (timeline clarity)
 - "Locked-in early adopter pricing" (incentive)
 - Counter showing waitlist growth
 
@@ -183,7 +183,7 @@ All improvements focused on increasing user engagement, conversion rates, and bu
 - Simplified description
 - **Enhanced transparency note** explaining:
   - This is pattern-matching demo (not full analysis)
-  - Real engine comes Q2 2025 with 48+ rules
+  - Real engine comes 2026 with 48+ rules
   - Link to waitlist for full version
 - Feedback buttons improved (👍 Yes, very helpful vs just ✓)
 
@@ -194,7 +194,7 @@ All improvements focused on increasing user engagement, conversion rates, and bu
 
 ✅ **We say:**
 - "This is a demo/validation project"
-- "Real version coming Q2 2025"
+- "Real version coming 2026"
 - "Pattern-matching for learning purposes"
 - "Early users shape the roadmap"
 
